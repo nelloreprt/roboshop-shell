@@ -1,3 +1,5 @@
+BHRGV
+
 # using camel case, declaring variable for location
 script_location=$(pwd)
 
