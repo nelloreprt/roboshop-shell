@@ -1,3 +1,7 @@
+pwd
+
+exit
+
 # Install Nginx
 yum install nginx -y
 
