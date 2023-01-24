@@ -1,8 +1,6 @@
 # using camel case, declaring variable for location
 script_location=$(pwd)
 
-exit
-
 # Install Nginx
 yum install nginx -y
 
