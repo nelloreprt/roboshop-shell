@@ -45,7 +45,7 @@ cp ${script_location}/files/mongo.repo /etc/yum.repos.d/mongo.repo
 #Install mongo client in catalogue server
 yum install mongodb-org-shell -y
 
-##Load Schema
+#Load Schema
 mongo --host mongodb-dev.nellore.online </app/schema/catalogue.js
 
 
