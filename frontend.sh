@@ -20,7 +20,7 @@ echo -e "\e[31m Extract the frontend content\e[0m"
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
-cp -r ${script_location}/files/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
+cp ${script_location}/files/nginx-roboshop.conf /etc/nginx/default.d/roboshop.conf
 
 echo -e "\e[31m # Restart Nginx Service to load the changes of the configuration\e[0m"
 # Restart Nginx Service to load the changes of the configuration.
