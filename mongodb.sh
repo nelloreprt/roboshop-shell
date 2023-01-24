@@ -12,4 +12,4 @@ systemctl start mongod
 
 
 #To check mongodb port number >> 27017  (port range on server 0-65565)
-$ netstat -lntp | grep mongo
+netstat -lntp | grep mongo
