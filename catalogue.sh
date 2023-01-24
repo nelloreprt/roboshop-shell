@@ -31,7 +31,7 @@ systemctl daemon-reload
 systemctl enable catalogue
 systemctl start catalogue
 systemctl status catalogue
-q
+
 
 cp -r ${script_location}/files/mongo.repo /etc/yum.repos.d/mongo.repo
 
