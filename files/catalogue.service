@@ -4,7 +4,7 @@ Description = Catalogue Service
 [Service]
 User=roboshop                      #run the service as “roboshop” user
 Environment=MONGO=true   #environment details to connect to mongodb
-Environment=MONGO_URL="mongodb://localhost:27017/catalogue"
+Environment=MONGO_URL="mongodb://mongodb-dev.nellore.online:27017/catalogue"
 ExecStart=/bin/node /app/server.js
 SyslogIdentifier=catalogue
 
