@@ -15,7 +15,7 @@ curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.z
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
-cp /home/centos/roboshop-shell/files /etc/nginx/default.d/roboshop.conf
+cp -r /home/centos/roboshop-shell/files /etc/nginx/default.d/roboshop.conf
 
 # Restart Nginx Service to load the changes of the configuration.
 systemctl restart nginx
