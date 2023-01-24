@@ -1,6 +1,10 @@
 # using camel case, declaring variable for location
 script_location=$(pwd)
 
+# we are enabling set
+# which means if there is any error the script should stop and show the error, without going to the next command
+set -e
+
 # Setup NodeJS repos. NodeJs_Vendor is providing a script to setup the repos.
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
