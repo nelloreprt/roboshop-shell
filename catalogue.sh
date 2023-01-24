@@ -30,7 +30,7 @@ cd /app
 ls
 npm install
 
-cp -r ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service
+cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service
 
 #Load the service.
 systemctl daemon-reload
@@ -41,7 +41,7 @@ systemctl start catalogue
 systemctl status catalogue
 
 
-cp -r ${script_location}/files/mongo.repo /etc/yum.repos.d/mongo.repo
+cp ${script_location}/files/mongo.repo /etc/yum.repos.d/mongo.repo
 
 #Install mongo client in catalogue server
 yum install mongodb-org-shell -y
