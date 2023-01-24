@@ -1,7 +1,7 @@
 # using camel case, declaring variable for location
 script_location=$(pwd)
 
-cp -r ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo
+cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
 
 #Install MongoDB
 yum install mongodb-org -y
