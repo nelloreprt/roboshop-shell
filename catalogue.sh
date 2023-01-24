@@ -3,7 +3,7 @@ script_location=$(pwd)
 
 # we are enabling set
 # which means if there is any error the script should stop and show the error, without going to the next command
-set -e
+#set -e
 
 # Setup NodeJS repos. NodeJs_Vendor is providing a script to setup the repos.
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
@@ -12,7 +12,7 @@ curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 yum install nodejs -y
 
 # Add application User
-#useradd roboshop
+useradd roboshop
 
 #Lets setup an app directory.
 mkdir -p /app
