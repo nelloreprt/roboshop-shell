@@ -1,11 +1,13 @@
 # using camel case, declaring variable for location
 script_location=$(pwd)
 
-# Install Nginx
+echo -e "\e[31m Install Nginx\e[0m"
 yum install nginx -y
 
-# Start & Enable Nginx service
+echo -e "\e[31m Enable Nginx service\e[0m"
 systemctl enable nginx
+
+echo -e "\e[31m Start Nginx service\e[0m"
 systemctl start nginx
 
 # Remove the default content that web server is serving.
