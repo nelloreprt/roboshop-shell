@@ -1,4 +1,5 @@
-pwd
+# using camel case, declaring variable for location
+script_location=$(pwd)
 
 exit
 
@@ -19,7 +20,7 @@ curl -o /tmp/frontend.zip https://roboshop-artifacts.s3.amazonaws.com/frontend.z
 cd /usr/share/nginx/html
 unzip /tmp/frontend.zip
 
-cp -r /home/centos/roboshop-shell/files /etc/nginx/default.d/roboshop.conf
+cp -r ${script-location}/roboshop-shell/files /etc/nginx/default.d/roboshop.conf
 
 # Restart Nginx Service to load the changes of the configuration.
 systemctl restart nginx
