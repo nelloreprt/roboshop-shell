@@ -40,12 +40,12 @@ systemctl enable catalogue
 systemctl start catalogue
 
 
-cp ${script_location}/files/mongo.repo /etc/yum.repos.d/mongo.repo
+cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
 
 #Install mongo client in catalogue server
 yum install mongodb-org-shell -y
 
-#Load Schema
+##Load Schema
 mongo --host mongodb-dev.nellore.online </app/schema/catalogue.js
 
 
