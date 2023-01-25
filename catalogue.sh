@@ -27,7 +27,7 @@ rm -rf *
 unzip /tmp/catalogue.zip
 
 cd /app
-ls
+
 npm install
 
 cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service
@@ -40,7 +40,7 @@ systemctl enable catalogue
 systemctl start catalogue
 
 
-cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
+cp ${script_location}/files/mongodb.repo /etc/systemd/system/catalogue.service
 
 #Install mongo client in catalogue server
 yum install mongodb-org-shell -y
