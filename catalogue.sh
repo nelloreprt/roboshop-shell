@@ -61,5 +61,5 @@ yum install mongodb-org-shell -y &>>${LOG}
 status_check
 
 print_head "Load Schema"
-mongo --host mongodb-dev.devopsb70.online </app/schema/catalogue.js &>>${LOG}
+mongo --host mongodb-dev.nellore.online </app/schema/catalogue.js &>>${LOG}
 status_check
