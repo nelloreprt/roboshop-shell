@@ -1,20 +1,22 @@
-# using camel case, declaring variable for location
-script_location=$(pwd)
+source common.sh
 
-cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo
+print_head "Copy MongoDB Repo file"
+cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongodb.repo &>>${LOG}
+status_check
 
-#Install MongoDB
-yum install mongodb-org -y
+print_head "Install MongoDB"
+yum install mongodb-org -y  &>>${LOG}
+status_check
 
-#To check mongodb port number >> 27017  (port range on server 0-65565)
-#netstat -lntp | grep mongo
+print_head "Update MongoDB Listen Address"
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf &>>${LOG}
+status_check
 
-##Update listen address from 127.0.0.1 to 0.0.0.0 in /etc/mongod.conf
-sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 
-#Start & Enable MongoDB Service
-systemctl enable mongod
+print_head "Enable MongoDB"
+systemctl enable mongod &>>${LOG}
+status_check
 
-#Restart the service to make the changes effected.
-systemctl restart mongod
-
+print_head "Start MongoDB"
+systemctl restart mongod &>>${LOG}
+status_check
