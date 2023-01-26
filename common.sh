@@ -11,3 +11,8 @@ status_check () {
   exit
   fi
 }
+
+print_head () {
+  echo " "
+
+}

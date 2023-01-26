@@ -6,12 +6,11 @@ source common.sh
 #set -e
 
 
-
-echo -e "\e[31m Setup NodeJS repos. NodeJs_Vendor is providing a script to setup the repos.\e[0m"
+print_head "Setup NodeJS repos. NodeJs_Vendor is providing a script to setup the repos"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash  &>>${LOG}
 status_check
 
-echo -e "\e[31m Install NodeJS\e[0m"
+print_head "Install NodeJS"
 yum install nodejs -y &>>${LOG}  &>>${LOG}
 status_check
 
