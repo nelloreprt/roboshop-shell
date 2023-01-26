@@ -121,7 +121,7 @@ else
 fi
 
 
-cp ${script_location}/files/mongodb.repo /etc/systemd/system/catalogue.service &>>${LOG}
+cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
 if [ $? -eq 0 ]
 then
   echo Success
