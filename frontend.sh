@@ -4,7 +4,7 @@ LOG=/tmp/roboshop.log
 
 echo -e "\e[31m Install Nginx\e[0m"
 yum install nginx -y &>>${LOG}
-if [ $? -eq 0 ]
+if [ $? -eq 0 ] 
 then
   echo Success
 else

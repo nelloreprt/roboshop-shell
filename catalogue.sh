@@ -1,53 +1,151 @@
 # using camel case, declaring variable for location
 script_location=$(pwd)
+LOG=/tmp/roboshop.log
 
 # we are enabling set
 # which means if there is any error the script should stop and show the error, without going to the next command
 #set -e
 
-# Setup NodeJS repos. NodeJs_Vendor is providing a script to setup the repos.
-curl -sL https://rpm.nodesource.com/setup_lts.x | bash
+echo -e "\e[31m Setup NodeJS repos. NodeJs_Vendor is providing a script to setup the repos.\e[0m"
+curl -sL https://rpm.nodesource.com/setup_lts.x | bash  &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-# Install NodeJS
-yum install nodejs -y
+echo -e "\e[31m Install NodeJS\e[0m"
+yum install nodejs -y &>>${LOG}  &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-# Add application User
-useradd roboshop
+echo -e "\e[31m Add application User\e[0m"
+useradd roboshop &>>${LOG} &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-#Lets setup an app directory.
-mkdir -p /app
+echo -e "\e[31m Lets setup an app directory.\e[0m"
+mkdir -p /app  &>>${LOG} &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-#Download the application code to created app directory.
-curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip
-cd /app
+echo -e "\e[31m Download the application code to created app directory.\e[0m"
+curl -L -o /tmp/catalogue.zip https://roboshop-artifacts.s3.amazonaws.com/catalogue.zip &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-#to make the script run any number of times without error, we have to remove the exsisting content from "/app" folder
-rm -rf *
+cd /app &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-unzip /tmp/catalogue.zip
+echo -e "\e[31m to make the script run any number of times without error, we have to remove the exsisting content from "/app" folder\e[0m"
+rm -rf * &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-cd /app
+echo -e "\e[31m Unzipping to /tmp/catalogue\e[0m"
+unzip /tmp/catalogue.zip &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-npm install
+cd /app &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service
+npm install &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-#Load the service.
-systemctl daemon-reload
+cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-#Start the service.
-systemctl enable catalogue
-systemctl start catalogue
+echo -e "\e[31m Load the service.\e[0m"
+systemctl daemon-reload &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
+
+echo -e "\e[31m Start the service.\e[0m"
+systemctl enable catalogue &>>${LOG}
+systemctl start catalogue &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
 
-cp ${script_location}/files/mongodb.repo /etc/systemd/system/catalogue.service
+cp ${script_location}/files/mongodb.repo /etc/systemd/system/catalogue.service &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-#Install mongo client in catalogue server
-yum install mongodb-org-shell -y
+echo -e "\e[31m Install mongo client in catalogue server\e[0m"
+yum install mongodb-org-shell -y &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
-##Load Schema
-mongo --host mongodb-dev.nellore.online </app/schema/catalogue.js
-
+echo -e "\e[31m Load Schema\e[0m"
+mongo --host mongodb-dev.nellore.online </app/schema/catalogue.js &>>${LOG}
+if [ $? -eq 0 ]
+then
+  echo Success
+else
+  echo Fail
+fi
 
 
 
