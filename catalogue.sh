@@ -13,6 +13,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 echo -e "\e[31m Install NodeJS\e[0m"
@@ -22,6 +23,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 echo -e "\e[31m Add application User\e[0m"
@@ -31,6 +33,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 echo -e "\e[31m Lets setup an app directory.\e[0m"
@@ -40,6 +43,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 echo -e "\e[31m Download the application code to created app directory.\e[0m"
@@ -49,6 +53,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 cd /app &>>${LOG}
@@ -57,6 +62,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 echo -e "\e[31m to make the script run any number of times without error, we have to remove the exsisting content from "/app" folder\e[0m"
@@ -66,6 +72,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 echo -e "\e[31m Unzipping to /tmp/catalogue\e[0m"
@@ -75,6 +82,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 cd /app &>>${LOG}
@@ -83,6 +91,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 npm install &>>${LOG}
@@ -91,6 +100,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 cp ${script_location}/files/catalogue.service /etc/systemd/system/catalogue.service &>>${LOG}
@@ -99,6 +109,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 echo -e "\e[31m Load the service.\e[0m"
@@ -108,6 +119,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 echo -e "\e[31m Start the service.\e[0m"
@@ -118,6 +130,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 
@@ -127,6 +140,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 echo -e "\e[31m Install mongo client in catalogue server\e[0m"
@@ -136,6 +150,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 echo -e "\e[31m Load Schema\e[0m"
@@ -145,6 +160,7 @@ then
   echo Success
 else
   echo Fail
+exit
 fi
 
 
