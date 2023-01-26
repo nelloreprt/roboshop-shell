@@ -33,7 +33,9 @@ then
   echo Success
 else
   echo Fail
+  echo refer log file $LOG
 exit
+
 fi
 
 echo -e "\e[31m Lets setup an app directory.\e[0m"
