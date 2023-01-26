@@ -13,6 +13,6 @@ status_check () {
 }
 
 print_head () {
-  echo " "
+  echo " $1 "
 
 }
