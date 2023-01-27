@@ -1,5 +1,12 @@
 source common.sh
 
+if [ -z ${root_mysql_password} ]
+then
+  echo “variable root_mysql_password is missing”
+  exit
+fi
+
+
 print_head "lets disable MySQL 8 version"
 dnf module disable mysql -y &>>${LOG}
 status_check
@@ -22,9 +29,5 @@ systemctl start mysqld &>>${LOG}
 status_check
 
 print_head "Mysql_secure_installation >> is a program given by mysql to reset password"
-mysql_secure_installation --set-root-pass RoboShop@1
-status_check
-
-print_head "You can check the new password working or not"
-mysql -uroot -pRoboShop@1
+mysql_secure_installation --set-root-pass ${root_mysql_password}
 status_check
