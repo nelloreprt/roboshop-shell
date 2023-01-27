@@ -70,6 +70,8 @@ NODEJS () {
   systemctl start {component} &>>${LOG}
   status_check
 
+if [ $schema_load == true ]
+then
   print_head "Configuring Mongo Repo "
   cp ${script_location}/files/mongodb.repo /etc/yum.repos.d/mongo.repo &>>${LOG}
   status_check
@@ -81,4 +83,5 @@ NODEJS () {
   print_head "Load Schema"
   mongo --host mongodb-dev.nellore.online </app/schema/{component}.js &>>${LOG}
   status_check
+fi
 }
