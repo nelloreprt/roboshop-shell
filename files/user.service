@@ -1,0 +1,13 @@
+[Unit]
+Description = User Service
+[Service]
+User=roboshop
+Environment=MONGO=true    #environment details to connect to mongodb
+Environment=REDIS_HOST=redis-dev.nellore.online
+Environment=MONGO_URL="mongodb://mongodb-dev.nellore.online:27017/users"
+ExecStart=/bin/node /app/server.js
+SyslogIdentifier=user
+
+
+[Install]
+WantedBy=multi-user.target
