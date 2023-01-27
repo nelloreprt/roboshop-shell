@@ -23,7 +23,8 @@ status_check
 
 print_head "Mysql_secure_installation >> is a program given by mysql to reset password"
 mysql_secure_installation --set-root-pass RoboShop@1
-
+status_check
 
 print_head "You can check the new password working or not"
 mysql -uroot -pRoboShop@1
+status_check
