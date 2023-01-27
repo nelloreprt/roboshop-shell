@@ -6,5 +6,7 @@ component=user
 # declaring variable so that schema loading commands are implemented "true", by using "if" condition
 schema_load=true
 
+schema_type=mongo
+
 # to keep the code DRY we sholud remove repetion, so the solution is using "Functions"
 NODEJS
