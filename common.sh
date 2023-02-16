@@ -133,7 +133,7 @@ LOAD_SCHEMA
 }
 
 PYTHON () {
-  print_head "Installs Python"
+  print_head "Install Python"
     yum install python36 gcc python3-devel -y &>>${LOG}
     status_check
 
